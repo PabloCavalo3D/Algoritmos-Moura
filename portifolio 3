@@ -1,0 +1,42 @@
+programa
+{
+    inclua biblioteca Util --> u
+    inclua biblioteca Texto --> t
+    inclua biblioteca Matematica --> m
+    inclua biblioteca Calendario --> ca
+    funcao inicio()
+    {
+        cadeia nome, nomeMaiusculo
+        inteiro idade, quantidadeLetras
+        real numero, raiz, hora, dia, mes, minuto
+
+        escreva("\nDigite seu nome: ")
+        leia(nome)
+        escreva("\nDigite sua idade: ")
+        leia(idade)
+        escreva("\nDigite um numero: ")
+        leia(numero)
+        escreva("\n Espere 5 segundos ")
+
+        nomeMaiusculo = t.caixa_alta(nome)
+        quantidadeLetras = t.numero_caracteres(nome)
+       
+        raiz = m.raiz(numero, 2)
+
+        hora = ca.hora_atual()
+        dia = ca.dia_mes_atual()
+        mes = ca.mes_atual()
+        minuto = ca.minuto_atual()
+
+        u.aguarde(5000)
+
+        inteiro sorteio = u.sorteia(1, 100)
+ 
+        escreva("\nNome em maiusculas: ", nomeMaiusculo)
+        escreva("\nQuantidade de letras: ", quantidadeLetras)
+        escreva("\nIdade: ", idade)
+        escreva("\nRaiz quadrada do numero: ", raiz)
+        escreva("\nNumero sorteado: ", sorteio)
+        escreva("\nMes: ",mes ," Dia: ",dia ," Hora: ",hora ," Minuto: ", mes)
+    }
+}
