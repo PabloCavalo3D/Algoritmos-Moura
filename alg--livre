@@ -1,0 +1,313 @@
+programa
+
+{
+
+    inclua biblioteca Util --> u
+
+    inclua biblioteca Texto --> t
+
+    inclua biblioteca Calendario --> c 
+
+    inclua biblioteca Matematica --> m
+
+
+
+    funcao inicio()
+
+    {
+
+        inteiro qtdLinhas = 4
+
+        inteiro qtdColunas = 3
+
+        real pontuacoes[4][3]
+
+        real base, expoente, numero, indice, a, b, modulo, valorangulo, casas, resultado, radianos
+
+        inteiro opcao
+
+        cadeia texto
+
+    
+
+          escreva("\nÃrea do Sistema da Loja de Games")
+
+        escreva("\nTabela criada com ", qtdLinhas, " linhas e ", qtdColunas, " colunas")
+
+
+
+        para (inteiro i = 0; i < qtdLinhas; i++)
+
+        {
+
+            para (inteiro j = 0; j < qtdColunas; j++)
+
+            {
+
+              pontuacoes[i][j] = u.sorteia(0, 100) / 10.0
+
+                
+
+                escreva("\nPosiÃ§Ã£o [", i, "][", j, "] = ", pontuacoes[i][j])
+
+                u.aguarde(500)
+
+            
+
+            
+
+            }
+
+
+
+        escreva("\nTempo atual decorrido")
+
+        escreva("\n")
+
+        escreva(u.tempo_decorrido()) 
+
+        u.aguarde(2000)
+
+
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                 
+
+                 
+
+                 escreva("\nArea biblioteca matematica")
+
+
+
+      escreva("\nQual operaÃ§Ã£o vocÃª deseja fazer?")
+
+      escreva("\n1|Potencia 2|Raiz 3|Maior/Menor 4|Modulo 5|Sin, cos, tag 6|Logaritmo : ")
+
+      leia(opcao)
+
+      u.aguarde(1000)
+
+
+
+        escolha(opcao){
+
+        
+
+        caso 1:
+
+            escreva("\nInforme o valor base: ")
+
+            leia(base)
+
+            escreva("\nInforme o expoente: ")
+
+            leia(expoente)
+
+            resultado = m.potencia(base, expoente)
+
+            escreva("\nResultado: ", m.arredondar(resultado, 3))
+
+        pare
+
+        
+
+        caso 2:
+
+            escreva("\nInforme um valor positivo: ")
+
+            leia(numero)
+
+            escreva("\nInforme o indice: ")
+
+            leia(indice)
+
+            se (numero >= 0)
+
+            {
+
+                resultado = m.raiz_quadrada(numero)
+
+                escreva("\nResultado: ", m.arredondar(resultado, 3))
+
+            }
+
+            senao
+
+            {
+
+                escreva("\nNÃ£o existe raiz de nÃºmero negativo!")
+
+            }
+
+        pare
+
+
+
+        caso 3:
+
+        
+
+            escreva("\nInforme o primeiro nÃºmero: ")
+
+            leia(a)
+
+            escreva("\nInforme o segundo nÃºmero: ")
+
+            leia(b)
+
+            escreva("\nMaior valor: ", m.maior_numero(a, b))
+
+            escreva("\nMenor valor: ", m.menor_numero(a, b))
+
+        pare
+
+
+
+        caso 4:
+
+        
+
+            escreva("\nInforme um nÃºmero: ")
+
+            leia(modulo)
+
+            escreva("\nMÃ³dulo do valor: ", m.modulo(modulo))
+
+        pare
+
+
+
+        caso 5:
+
+        
+
+            escreva("\nInforme o Ã¢ngulo em graus: ")
+
+            leia(valorangulo)
+
+
+
+            radianos = valorangulo * (3.14159 / 180)
+
+            escreva("\nSeno: ", m.arredondar(m.seno(radianos), 3))
+
+            escreva("\nCosseno: ", m.arredondar(m.cosseno(radianos), 3))
+
+            escreva("\nTangente: ", m.arredondar(m.tangente(radianos), 3))
+
+        
+
+            pare
+
+        
+
+        caso 6:
+
+        
+
+            escreva("\nInforme um valor maior que zero: ")
+
+            leia(numero)
+
+            escreva("\nInforme a base do log: ")
+
+            leia(base)
+
+            se (numero > 0)
+
+            {
+
+                resultado = m.logaritmo(numero, base)
+
+                escreva("\nLogaritmo: ", m.arredondar(resultado, 3))
+
+            }
+
+            senao
+
+            {
+
+                escreva("\nValor invÃ¡lido! Deve ser maior que zero.")
+
+            }
+
+            pare
+
+
+
+            caso contrario:
+
+            escreva("opÃ§Ã£o invalida")
+
+            pare
+
+        }
+
+
+
+        escreva("\nTempo atual decorrido")
+
+        escreva("\n")
+
+        escreva(u.tempo_decorrido()) 
+
+        u.aguarde(2000)
+
+    
+
+
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      escreva("\nArea biblioteca texto")
+
+      escreva("\nInforme uma palavra ou frase: ")
+
+      leia(texto)
+
+
+
+      escreva("\nQuantidade de caracteres: ", t.numero_caracteres(texto))
+
+      escreva("\nMaiusculas: ", t.caixa_alta(texto))
+
+      escreva("\nMinusculas: ", t.caixa_baixa(texto))
+
+      escreva("\nSubstituindo 'a' por '@': ", t.substituir(texto, "a", "@"))
+
+
+
+      se (t.numero_caracteres(texto) >= 3)
+
+      {
+
+          escreva("\nSubtexto (0 a 3): ", t.extrair_subtexto(texto,0,3))
+
+      }
+
+
+
+      escreva("\nPosicao da letra 'a': ", t.posicao_texto("a", texto, 0))
+
+      escreva("\nPrimeiro caractere: ", t.obter_caracter(texto,0))
+
+
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      escreva("\nArea biblioteca calendario")
+
+      escreva("\nData atual: ", c.dia_mes_atual(), "/", c.mes_atual(), "/", c.ano_atual())
+
+      escreva("\nHorario atual: ", c.hora_atual(), ":", c.minuto_atual(), ":", c.segundo_atual())
+
+      escreva("\nDia da semana: ", c.dia_semana_atual())
+
+
+
+}
+
+}
+
+}
